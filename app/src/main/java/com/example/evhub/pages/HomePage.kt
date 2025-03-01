@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -331,7 +332,6 @@ fun EVServiceCard(service: EVService) {
         }
     }
 }
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EvHubAppBar(
@@ -348,14 +348,15 @@ fun EvHubAppBar(
             )
         },
         title = {
-            Row {
+            // Shift the title a bit to the left with an offset modifier
+            Row(modifier = Modifier.offset(x = (-16).dp)) {
                 Text(
-                    text = "EvHub",
+                    text = "BatteryFy",
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontWeight = FontWeight.Bold,
                         fontSize = 23.sp,
-                        brush = Brush.horizontalGradient(
-                            colors = listOf(Color.Cyan , LightGreen)
+                        brush = Brush.sweepGradient(
+                            colors = listOf(LightGreen, AzureBlue)
                         )
                     )
                 )
