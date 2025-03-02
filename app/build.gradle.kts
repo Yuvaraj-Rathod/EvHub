@@ -70,4 +70,7 @@ dependencies {
 
     //SystemUI
     implementation(libs.accompanist.systemuicontroller)
+
+   //Navigation
+    implementation(libs.androidx.navigation.compose)
 }
