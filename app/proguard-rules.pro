@@ -19,3 +19,42 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# 💀 Make class names unreadable
+-obfuscationdictionary obfuscation.txt
+-classobfuscationdictionary obfuscation.txt
+-packageobfuscationdictionary obfuscation.txt
+
+# 🚫 Prevent decompilers from reconstructing source code
+-dontusemixedcaseclassnames
+-dontpreverify
+-optimizationpasses 5
+-allowaccessmodification
+-renamesourcefileattribute "Obfuscated"
+-adaptclassstrings
+-keepattributes *Annotation*
+
+# 🔒 Protect all your classes
+-keep class com.yourpackage.** { *; }
+
+# 😵 Keep only essential methods, rest gets messed up
+-keepclassmembers class * {
+    @androidx.annotation.Keep *;
+}
+
+# 🛡️ Hide Log statements (so he can’t see what’s happening)
+-assumenosideeffects class android.util.Log {
+    public static *** d(...);
+    public static *** v(...);
+    public static *** i(...);
+    public static *** w(...);
+    public static *** e(...);
+}
+
+# 🚀 Remove unused code & resources
+-ignorewarnings
+
+# 👁️ Make reflection useless
+-flattenpackagehierarchy
+-repackageclasses obf
+

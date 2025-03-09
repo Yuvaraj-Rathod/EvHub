@@ -1,5 +1,8 @@
 package com.example.evhub.pages.homepage
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -49,6 +52,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -69,9 +73,15 @@ import com.example.evhub.ui.theme.MidnightBlue
 import com.example.evhub.ui.theme.SlateBlue
 import com.example.evhub.ui.theme.White
 
+@SuppressLint("ContextCastToActivity")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePage(navController: NavController) {
+    val activity = LocalContext.current as? Activity
+    BackHandler {
+        // When back is pressed on home, finish the activity (exit app)
+        activity?.finish()
+    }
     val zoneCardList = listOf(
         Zonecard(
             imagePainter = painterResource(R.drawable.macd),
@@ -101,9 +111,9 @@ fun HomePage(navController: NavController) {
     Scaffold(
         topBar = {
             EvHubAppBar(
-                onLeftIconClick = { /* Handle left icon click, e.g., open navigation drawer */ },
-                onSearchClick = { /* Handle search action */ },
-                onProfileClick = { /* Handle profile action */ }
+                onLeftIconClick = { navController.navigate("404")},
+                onSearchClick = {  navController.navigate("404") },
+                onProfileClick = {  navController.navigate("404") }
             )
         },
         floatingActionButton = {
@@ -119,7 +129,7 @@ fun HomePage(navController: NavController) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = 4.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             // Charging Stations Section

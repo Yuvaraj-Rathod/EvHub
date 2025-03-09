@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -50,18 +52,16 @@ fun EvHubAppBar(
 ) {
     CenterAlignedTopAppBar(
         // Add horizontal padding so the app bar content is inset
-        modifier = Modifier.padding(horizontal = 10.dp),
+        modifier = Modifier.padding(horizontal = 2.dp),
         navigationIcon = {
             ElevatedIcon(
                 imageVector = Icons.Filled.Menu,
                 contentDescription = "Menu",
-                onClick = onLeftIconClick,
-                modifier = Modifier.padding(start = 2.dp)
+                onClick = onLeftIconClick
             )
         },
         title = {
-            // Title with gradient text; here we remove the left offset,
-            // relying on the app bar's padding instead.
+
             Text(
                 text = "BatteryFy",
                 style = MaterialTheme.typography.titleLarge.copy(
@@ -77,17 +77,15 @@ fun EvHubAppBar(
         },
         actions = {
             ElevatedIcon(
-                imageVector = Icons.Filled.Search,
+                imageVector = Icons.Filled.Refresh,
                 contentDescription = "Search",
-                onClick = onSearchClick,
-                modifier = Modifier.padding(end = 2.dp)
+                onClick = onSearchClick
             )
             Spacer(modifier = Modifier.width(13.dp))
             ElevatedIcon(
                 imageVector = Icons.Filled.AccountCircle,
                 contentDescription = "Profile",
-                onClick = onProfileClick,
-                modifier = Modifier.padding(end = 2.dp)
+                onClick = onProfileClick
             )
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(

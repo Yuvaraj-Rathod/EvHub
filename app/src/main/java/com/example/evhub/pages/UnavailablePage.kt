@@ -53,7 +53,7 @@ fun UnavailablePage(navController: NavController) {
                     ElevatedIcon(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = "Back",
-                        onClick = { navController.popBackStack() },
+                        onClick = { navController.navigate("home")},
                         modifier = Modifier.padding(start = 16.dp)
                     )
                 },

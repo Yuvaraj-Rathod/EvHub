@@ -37,7 +37,7 @@ fun EvHubTheme(
     if (!view.isInEditMode) {
         SideEffect {
             // Use a slightly lighter dark blue for the top bar so it stands out
-            systemUiController.setStatusBarColor(color = DarkBlue)
+            systemUiController.setStatusBarColor(color = MidnightBlue)
             // Use midnight blue for the navigation bar to match the overall background
             systemUiController.setNavigationBarColor(color = MidnightBlue)
         }

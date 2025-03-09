@@ -332,7 +332,7 @@ fun BookingPage(navController: NavController) {
 
                     // Confirm Booking Button
                     Button(
-                        onClick = { /* Handle confirm booking action */ },
+                        onClick = { navController.popBackStack() },
                         modifier = Modifier.fillMaxWidth(),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = LightGreen,
